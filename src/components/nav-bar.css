@@ -1,0 +1,19 @@
+/* Navbar container */
+.light-box{
+  background-image: url("/light-box.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Arial;
+  width: 709px;
+  height: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 -40px 100px, 0 0 2px, 0 0 5em rgb(68,200,141), 0 0 0.5em rgb(68,200,141), 0 0 0.1em rgb(68,200,141), 0 10px 3px #000;
+}
+
+.title {
+  color: rgb(40,40,40);
+  float: left;
+  font-size: 50px;
+  margin-left: 20px;
+}

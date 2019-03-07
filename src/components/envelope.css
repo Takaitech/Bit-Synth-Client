@@ -1,0 +1,25 @@
+
+
+.input-range {
+  -webkit-appearance: none;
+  height: 50px;
+  border-radius: 5px;
+  background: #ccc;
+  outline: none;
+  writing-mode: bt-lr; /* IE */
+  -webkit-appearance: slider-vertical; /* WebKit */
+  width: 10px;
+  margin-left: 10px;
+}
+.envelope {
+  position: absolute;
+  left: 0;
+  top:0;
+}
+.attack, .decay, .sustain, .release {
+  color: white;
+  padding: 4px;
+  position: relative;
+  left: 26px;
+  top: 16px;
+}

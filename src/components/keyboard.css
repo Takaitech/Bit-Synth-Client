@@ -1,0 +1,51 @@
+
+.keyboard{
+  border-radius: 70px 70px 0px 0px / 10px 10px 0px 0px;
+  border: 3px solid black;
+  position: relative;
+  bottom: -60px;
+  left: 45px;
+  width:85%;
+  height: 64%;
+  box-sizing: border-box;
+  transform: perspective(500px) rotateX(1deg);
+  background-color: rgb(30,30,30);
+}
+
+
+.key {
+  position: absolute;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 0px 6px black;
+}
+.white {
+  z-index: 1;
+  border: 2px solid black;
+  height: 95%;
+  width: 8%;
+  box-shadow: 0px 7px black;
+  background-color: white;
+
+}
+
+.black {
+  z-index: 2;
+  border: 2px solid black;
+  height: 50%;
+  width: 5%;
+  background-color: black;
+}
+
+.leftBorder {
+  border-left: none;
+}
+
+.triggered {
+  background-color: render
+}
+
+.triggered {
+  background-color: white;
+}

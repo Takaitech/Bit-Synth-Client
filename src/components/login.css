@@ -1,0 +1,48 @@
+form {
+  border: none;
+  text-align: center;
+}
+
+fieldset {
+  border:none;
+}
+
+legend {
+  font-size: 30px;
+  color: rgb(68,200,141);
+
+}
+
+.user-input {
+  color: rgb(68,200,141);
+  font-weight: bolder;
+}
+
+.submit {
+    margin-top: 20px;
+}
+
+button > img {
+  width: 200px;
+  padding: 10px;
+
+}
+
+label > img {
+  padding: 10px;
+  width: 150px;
+}
+
+.guest-user {
+  text-align: center;
+  color: rgb(68,200,141);
+  padding: 10px;
+  font-size: 10px;
+}
+
+.login-container {
+  text-align: center;
+}
+.signup {
+  color:rgb(68,200,141);
+}
