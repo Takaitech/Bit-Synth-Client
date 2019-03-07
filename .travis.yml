@@ -3,3 +3,10 @@ node_js: node
 cache:
   directories:
   - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: XI03gAsajG8CJuzM/3/EGmifvpN7sA2rb0Dx5tXNlYTK8vClu8KMqUYdRaZITiMeyLYeXMjWIkRYs9IiKHrPcs4y+2shdZ55RD0STs2rSnptlfDj/Unt3Iq67o+7sIBQbDIN/hqlPbsLrgqH8NEF3lLcblV2xGD9Fwljws3Pf1VmToSKFAGTNue/s0FsDKG3Rvd9nPhPVL681eUCgezSukPiumv2TU6HQW/cMy3ZavQvJu1jJ99Ibj6XhFEQ+vhwBjDXmU19fghQfKcgYCn66j5qk0wH9vBpqLDoWtUwW3U8Qs1P6yrN2OR/KBBHnCFJldk3wYhizN2Ajl0b1CQAkCsYJxU3mo73F8B0jFC3LGBPNLELZqSNKZ2agjmUz6j1+rZDs39C4GZyNsozixJBPH8x/HZFE9UH/emPAMy4S4S8QW/Nl/JY+WRszeFR1ZMSFKWxJLjz5NgoX5WjkHYAGAitpQWtTr2B6gsAmE6Nq2t6ZHaAQHLoR5mcWG/EFEkBht9QBbovjaGGpQ3sSzfYI34FyUgZh69FcT9ETTrFJFzcn4RIYfrSRd4sgfs+aIN8Zziw2gykSKgVPUF6EDRL71K1pXI/LY19bZOr2UvOoHIk6ML+XVG0v+Ex2mepAJQDEBctYHNgSPJvjxtiJ1lGizQMZheKjGFzRxzxeSUcOt4=
+  app: enigmatic-sea-16189
+  on:
+    repo: Takaitech/Bit-Synth-Client
