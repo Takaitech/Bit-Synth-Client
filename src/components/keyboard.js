@@ -1,24 +1,9 @@
 import React from "react"
-import "./keyboard.css"
+import "./keyboard.css";
+import {synth} from "../synth";
+
 const AudioKeys =  require('audiokeys');
-const Tone = require('tone');
 
-
-
-var synth = new Tone.PolySynth(4, Tone.Synth).toMaster();
-synth.set({
-  "oscillator"  : {
-    "type"  : "pulse"
-  },
-  "envelope"  : {
-    "attack"  : 0.1,
-    "decay"  : 0.3 ,
-    "sustain"  : 0.7 ,
-    "release"  : 0.4
-  }
-})
-
-synth.volume.value = -20;
 
 // create a keyboard
 var keyboard = new AudioKeys({
@@ -28,46 +13,40 @@ var keyboard = new AudioKeys({
   rootNote: 60
 });
 
+export default function Keyboard() {
+    keyboard.down( function(note) {
+      let triggered = [document.getElementById(note.keyCode)];
+      triggered.forEach(function(keyCode) {
+        if (keyCode.className.match(/\bwhite\b/)){
+        keyCode.style.top = "2px";
+        keyCode.style.backgroundColor ="black"
+        } else {
+        keyCode.style.top = "2px";
+        keyCode.style.backgroundColor ="white"
+        }
+      })
+      //let velocity = note.velocity / 127
+      console.log(synth.get())
+     synth.triggerAttack(note.frequency);
+
+    });
 
 
 
-keyboard.down( function(note) {
-  let triggered = [document.getElementById(note.keyCode)];
-  triggered.forEach(function(keyCode) {
-    if (keyCode.className.match(/\bwhite\b/)){
-    keyCode.style.top = "2px";
-    keyCode.style.backgroundColor ="black"
-    } else {
-    keyCode.style.top = "2px";
-    keyCode.style.backgroundColor ="white"
-    }
-  })
-  let frequency = note.frequency
-  //let velocity = note.velocity / 127
-  console.log(triggered);
-  console.log('trigger down')
-  synth.triggerAttack(frequency);
-});
+    keyboard.up( function(note) {
+      let triggered = [document.getElementById(note.keyCode)];
+      triggered.forEach(function(keyCode) {
+        if (keyCode.className.match(/\bwhite\b/)){
+        keyCode.style.top = "0px";
+        keyCode.style.backgroundColor ="white"
+        } else {
+        keyCode.style.top = "0px";
+        keyCode.style.backgroundColor ="black"
+        }
+      })
+     synth.triggerRelease(note.frequency);
+    });
 
-
-
-keyboard.up( function(note) {
-  let triggered = [document.getElementById(note.keyCode)];
-  triggered.forEach(function(keyCode) {
-    if (keyCode.className.match(/\bwhite\b/)){
-    keyCode.style.top = "0px";
-    keyCode.style.backgroundColor ="white"
-    } else {
-    keyCode.style.top = "0px";
-    keyCode.style.backgroundColor ="black"
-    }
-  })
-  console.log('trigger up')
-  synth.triggerRelease(note.frequency);
-});
-
-
-export default function Keyboard(props) {
   return(
     <div className="keyboard">
         <div className="key white" id="65" style={{left:"6%"}}></div>
