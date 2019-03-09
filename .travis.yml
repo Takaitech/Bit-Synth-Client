@@ -1,7 +1,7 @@
 language: node_js
-node_js: node
-node:
-  version: 11.10.1
+node_js:
+  - node
+  - 11.10.1
 cache:
   directories:
   - node_modules
