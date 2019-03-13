@@ -41,9 +41,9 @@ Volume.defaultProps = {
 
 const mapStateToProps = state => ({
   oscillator: {
-    mute: state.oscillator.mute
+    mute: state.synth.oscillator.mute
   },
-  volume: state.volume
+  volume: state.synth.volume
 
 });
 

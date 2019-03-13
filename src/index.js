@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import store from './store'
 import {Provider} from 'react-redux';
-import {synth} from './synth';
+import {synth} from './reducers/index';
 import './index.css';
 import App from './components/App';
-import store from './store';
 import * as serviceWorker from './serviceWorker';
 
+console.log(store.getState())
 
 
 store.subscribe(() => {
@@ -15,17 +16,17 @@ store.subscribe(() => {
   let state = store.getState()
   synth.set({
     envelope: {
-      attack: state.envelope.attack,
-      decay: state.envelope.decay,
-      sustain: state.envelope.sustain,
-      release: state.envelope.release
+      attack: state.synth.envelope.attack,
+      decay: state.synth.envelope.decay,
+      sustain: state.synth.envelope.sustain,
+      release: state.synth.envelope.release
     },
     oscillator: {
-      type: state.oscillator.type,
-      mute: state.oscillator.mute,
-      width: state.oscillator.width
+      type: state.synth.oscillator.type,
+      mute: state.synth.oscillator.mute,
+      width: state.synth.oscillator.width
     },
-    volume: state.volume
+    volume: state.synth.volume
   })
 });
 

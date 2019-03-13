@@ -1,3 +1,5 @@
+
+
 .grid {
   border: black solid 3px;
   height: 280px;
@@ -8,20 +10,48 @@
   top: 20px;
   border-radius:5px;
   transform: perspective(100px) rotateX(1deg);
+  overflow: scroll;
+  background: grey;
 
 }
-.octave {
-  width: 100%;
-  height:50%;
+.octaves {
+  width: 10%;
+  height:100%;
+  float: left;
+}
+
+.row > span {
+  margin-right: 5px;
+  font-size: 10px;
 
 }
 
 .row {
+  box-sizing: border-box;
+  text-align:right;
   width: 100%;
   height: 6.25%;
+  border:1px solid rgb(68,200,141);
   background-color: grey;
 }
 
+
+.column {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 5.625%;
+  height: 100%;
+}
+
 .cell {
-  
+  box-sizing: border-box;
+  height: 6.25%;
+  width: 100%;
+  border:1px solid rgb(68,200,141);
+
+}
+
+.active {
+  background-color: rgba(0, 0, 0, 0.9);
+
 }

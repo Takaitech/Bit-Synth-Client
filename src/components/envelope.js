@@ -45,7 +45,7 @@ Envelope.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  envelope: state.envelope
+  envelope: state.synth.envelope
 });
 
 export default connect(mapStateToProps)(Envelope);
