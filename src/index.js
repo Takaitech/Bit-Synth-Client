@@ -7,12 +7,9 @@ import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
-console.log(store.getState())
-
-
+//SUBSCRIBE SYNTH TO STORE
 store.subscribe(() => {
   console.log('state changed');
-  console.log(store.getState())
   let state = store.getState()
   synth.set({
     envelope: {

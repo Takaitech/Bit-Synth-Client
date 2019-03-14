@@ -5,7 +5,7 @@ import {synth} from "../reducers/index";
 const AudioKeys =  require('audiokeys');
 
 
-// create a keyboard
+// CREATE KEYBOARD
 var keyboard = new AudioKeys({
   polyphony: 50,
   rows: 1,
@@ -13,36 +13,32 @@ var keyboard = new AudioKeys({
   rootNote: 60
 });
 
-export {keyboard};
+//KEYBOARD DOWN FUNCTION
 keyboard.down( function(note) {
   let triggered = [document.getElementById("#" + note.keyCode)];
-  console.log(note.keyCode)
+
   triggered.forEach(function(keyCode) {
+    keyCode.style.top = "2px";
     if (keyCode.className.match(/\bwhite\b/)){
-    keyCode.style.top = "2px";
-    keyCode.style.backgroundColor ="black"
-  } else if (keyCode.className.match(/\bblack\b/)) {
-    keyCode.style.top = "2px";
-    keyCode.style.backgroundColor ="white"
+      keyCode.style.backgroundColor ="black"
+    } else if (keyCode.className.match(/\bblack\b/)) {
+      keyCode.style.backgroundColor ="white"
     }
   })
-  //let velocity = note.velocity / 127
  synth.triggerAttack(note.frequency);
-
 });
 
 
-
+//KEYBOARD UP FUNCTION
 keyboard.up( function(note) {
   let triggered = [document.getElementById("#" + note.keyCode)];
-  console.log(triggered)
+
   triggered.forEach(function(keyCode) {
+    keyCode.style.top = "0px";
     if (keyCode.className.match(/\bblack\b/)){
-    keyCode.style.top = "0px";
-    keyCode.style.backgroundColor ="black"
-  } else if (keyCode.className.match(/\bwhite\b/)) {
-    keyCode.style.top = "0px";
-    keyCode.style.backgroundColor ="white"
+      keyCode.style.backgroundColor ="black"
+    } else if (keyCode.className.match(/\bwhite\b/)) {
+      keyCode.style.backgroundColor ="white"
     }
   })
  synth.triggerRelease(note.frequency);
@@ -74,3 +70,5 @@ export default function Keyboard() {
       </div>
   )
 }
+
+export {keyboard};

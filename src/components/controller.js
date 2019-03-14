@@ -1,6 +1,6 @@
 import React from "react";
 import "./controller.css";
-import {playMode } from '../actions'
+import {playMode,updateCurrentColumn } from '../actions'
 import {connect} from 'react-redux'
 import Keyboard from "./keyboard"
 import Envelope from "./envelope"
@@ -13,6 +13,7 @@ console.log(Tone.Transport.seconds.toFixed(2))
 export class Controller extends React.Component {
   playMode(mode) {
     console.log('hi')
+    this.props.dispatch(updateCurrentColumn(0))
     if (this.props.mode === "creation") {
     this.props.dispatch(playMode(mode))
     console.log(Tone.Transport.seconds.toFixed(2))
@@ -22,7 +23,7 @@ export class Controller extends React.Component {
     console.log(Tone.Transport.seconds.toFixed(2))
     Tone.Transport.toggle()
   }
-  
+
 
   }
   render(){
@@ -31,7 +32,7 @@ export class Controller extends React.Component {
         <Envelope />
         <Keyboard />
         <Volume />
-        <input id="play" type="button" onClick={e => {this.playMode("play")}} />
+        <input id="play" type="button" value="Play" onClick={e => {this.playMode("play")}} />
       </div>
     )
   }

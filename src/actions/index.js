@@ -45,3 +45,9 @@ export const playMode = mode => ({
   type: PLAY_MODE,
   mode
 })
+
+export const UPDATE_CURRENT_COLUMN = "UPDATE_CURRENT_COLUMN";
+export const updateCurrentColumn = col => ({
+  type: UPDATE_CURRENT_COLUMN,
+  col
+})

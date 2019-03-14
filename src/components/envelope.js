@@ -22,13 +22,13 @@ export class Envelope extends React.Component {
     return(
     <div className="envelope">
       <label className="attack">A</label>
-      <input className="input-range" type="range" step="0.1" min="0" max="5" defaultValue={this.props.envelope.attack} onInput={e => {this.updateAttack(parseFloat(e.target.value))}} />
+      <input className="input-range" type="range" step="0.1" min="0" max="5" defaultValue={this.props.envelope.attack} onChange={e => {this.updateAttack(parseFloat(e.target.value))}} />
       <label className="decay">D</label>
-      <input className="input-range" type="range" step="0.5" min="0" max="10" defaultValue={this.props.envelope.decay} onInput={e => {this.updateDecay(parseFloat(e.target.value))}} />
+      <input className="input-range" type="range" step="0.5" min="0" max="10" defaultValue={this.props.envelope.decay} onChange={e => {this.updateDecay(parseFloat(e.target.value))}} />
       <label className="sustain">S</label>
-      <input className="input-range" type="range" step="0.1" min="0" max="1" defaultValue={this.props.envelope.sustain} onInput={e => {this.updateSustain(parseFloat(e.target.value))}} />
+      <input className="input-range" type="range" step="0.1" min="0" max="1" defaultValue={this.props.envelope.sustain} onChange={e => {this.updateSustain(parseFloat(e.target.value))}} />
       <label className="release">R</label>
-      <input className="input-range" type="range" step="0.1" min="0.1" max="10" defaultValue={this.props.envelope.release} onInput={e => {this.updateRelease(parseFloat(e.target.value))}} />
+      <input className="input-range" type="range" step="0.1" min="0.1" max="10" defaultValue={this.props.envelope.release} onChange={e => {this.updateRelease(parseFloat(e.target.value))}} />
     </div>
     )
   }

@@ -1,14 +1,22 @@
 import React from 'react';
 import Tone from 'tone'
 import {synth} from "../reducers/index";
+import {updateCurrentColumn} from  '../actions'
 import StartAudioContext from "startaudiocontext"
 import {connect} from 'react-redux';
 import {keyboard} from './keyboard'
 import "./grid.css"
 
+function activateCell(e) {
+  if(e.classList[0].toString(0,4) === "cell") {
+    e.className =("active cell")
+    e.style.backgroundColor ="black"
+  } else if (e.classList[0].toString(0,6) === "active") {
+    e.className =("cell")
+    e.style.backgroundColor = "transparent"
+  }
+}
 
-//AUDIO CONTEXT TIME
-/*--------------------------------------------------------------------*/
 StartAudioContext(Tone.context)
 .then(() => console.log('INITIALIZED WEB AUDIO API'))
 .catch(() => console.log('FAILED TO INITIALIZE WEB AUDIO API'));
@@ -20,60 +28,89 @@ function updateTime() {
   Tone.context.currentTime.toFixed(2)
 }
 updateTime()
+Tone.Transport.loopEnd = "4m"
+Tone.Transport.loop = true;
 
 Tone.Transport.bpm.value = 120
-Tone.Transport.loopEnd = '4m'
-Tone.Transport.loop = true
+
 
 export class Grid extends React.Component {
-
+  updateCurrentColumn(col) {
+    this.props.dispatch(updateCurrentColumn(col));
+  }
   render() {
-    let column = document.getElementById('1' )
-    console.log(column)
+    const createCells = this.props.notes.map((note, index) => (
+      <div className="cell" id={this.props.noteNumbers[index]}  data-value={this.props.notes[index]} key={index} onClick={e => {activateCell(e.target)}} ></div>
+    ))
 
-   var loop = new Tone.Sequence(function(time, col){
-    			//set the columne on the correct draw frame
-    			Tone.Draw.schedule(function(){
-    			}, time);
-    		}, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "4n").start(0);
+    const createColumns = this.props.columns.map((column, index) => (
+      <div className={`column ` + this.props.columns[index]} id={this.props.columns[index]} key={index}>{createCells}</div>
+    ))
+
+    const createRows = this.props.notes.map((note, index) => (
+      <div className="row"  id={note[index]} key={this.props.noteNumbers[index]}><span>{this.props.notes[index]}</span></div>
+    ));
+    let index = this.props.currentColumn;
+    Tone.Transport.scheduleRepeat(repeat,"16n")
 
 
-      const createCells = this.props.notes.map((row, index) => (
-        <div className={`cell ` + this.props.noteNumbers[index]} id={this.props.noteNumbers[index]} key={index} ></div>
-      ))
+    function repeat(time) {
+      console.log(index)
+      let step = index % 16;
+      let currentStep = document.getElementById(step)
+    	var siblings = [];
+    	var sibling = currentStep.parentNode.firstChild;
+    	while (sibling) {
+    		if (sibling.nodeType === 1 && sibling !== currentStep) {
+    			siblings.push(sibling);
+    		}
+    		sibling = sibling.nextSibling
+    	}
+      currentStep.className = "column highlight"
+      for (let i= 0; i < siblings.length; i++) {
+        siblings[i].className = "column"
+      }
 
-      //MAP COLUMN CELLS TO EACH ROW
-      const createColumns = this.props.columns.map((column, index) => (
-        <div className={`column ` + this.props.columns[index]} id={this.props.columns[index]} key={index} >{createCells}</div>
-      ))
-
-      const createGrid = this.props.notes.map((note, index) => (
-          <div className="row labels"  id={note[index]} key={this.props.noteNumbers[index]}><span>{this.props.notes[index]}</span></div>
-
-      ));
+       const activeNotes  = []
+      let currentCells = currentStep.children
+      for (let i = 0; i < currentCells.length; i++) {
+        if(currentCells[i].classList[0].toString(0,6) === "active"){
+          activeNotes.push(currentCells[i].getAttribute('data-value'))
+          console.log(activeNotes)
+        }
+      }
+        for(let i = 0; i < activeNotes.length; i++) {
+        synth.triggerAttackRelease(activeNotes[i],"16n",time)
+        }
+        index ++
+    }
 
 
     keyboard.down(function(note) {
-      if (note.note < 96 && note.note > 23) {
-      let active = document.getElementById(note.note);
-      if(active.className.match(/\bcell\b/)) {
-      active.style.backgroundColor ="black";
-      }
+      if (note.note < 96 && note.note > 47) {
+        let active = document.getElementById(note.note);
+        if(active.className.match(/\bcell\b/)) {
+          active.className = `cell active `
+        } else {
+          console.log('already active')
+        }
       }
     });
 
     keyboard.up(function(note) {
-      if (note.note < 96 && note.note > 23) {
-      let active = document.getElementById(note.note);
-      if(active.className.match(/\bcell\b/)) {
-      active.style.backgroundColor ="grey";
+      if (note.note < 96 && note.note > 47) {
+        let active = document.getElementById(note.note);
+        if(active.className.match(/\bcell active\b/ )) {
+          active.className = "cell"
+        } else {
+          console.log('already active')
       }
     }
-    });
+  });
     return(
       <div className="grid">
-        <div className="octaves">{createGrid}</div>
-        {createColumns}
+        <div className="rows">{createRows}</div>
+        <div className="columns">{createColumns}</div>
       </div>
     )
   }
@@ -81,7 +118,7 @@ export class Grid extends React.Component {
 
 Grid.defaultProps = {
   mode: "creation",
-  currentColumn: -1
+  currentColumn: 0,
 };
 
 const mapStateToProps = state => ({
@@ -89,7 +126,8 @@ const mapStateToProps = state => ({
   currentColumn: state.sequencer.currentColumn,
   notes: state.sequencer.grid.notes,
   noteNumbers: state.sequencer.grid.noteNumbers,
-  columns: state.sequencer.grid.columns
+  columns: state.sequencer.grid.columns,
+  active: state.sequencer.grid.active
 
 
 });
