@@ -1,0 +1,21 @@
+
+.preset-menu {
+  height: 70px;
+  width: 95.5%;
+  bottom: -15px;
+  margin-left: auto;
+  margin-right: auto;
+  position:relative;
+  border-radius:5px;
+  transform: perspective(100px) rotateX(1deg);
+  overflow: scroll;
+  background: rgb(68,200,141);
+  border-radius: 0px 0px 100px 100px / 15px 15px 15px 15px;
+  box-shadow: 0 70px 100px, 0 0 10px mediumseagreen, 0 0 4em mediumseagreen, 0 0 0.5em mediumseagreen, 0 0 60em -50px mediumseagreen;
+
+}
+
+.preset {
+  font-size: 13px;
+  color: black;
+}

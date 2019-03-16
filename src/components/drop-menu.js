@@ -28,9 +28,8 @@ export default function DropMenu(props) {
         <i className="fa fa-caret-down"></i>
       </button>
       <div className="dropdown-content">
-        <input type="button" value='INIT' onClick={e => {initSynth()}} />
-        <input type="button" value='INIT'/>
-        <input type="button" value='INIT'/>
+        <input type="button" value='INIT SYNTH' onClick={e => {initSynth()}} />
+        <input type="button" value='SAVE PRESET'/>
       </div>
     </div>
   )

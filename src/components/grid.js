@@ -10,7 +10,7 @@ import "./grid.css"
 function activateCell(e) {
   if(e.classList[0].toString(0,4) === "cell") {
     e.className =("active cell")
-    e.style.backgroundColor ="black"
+    e.style.backgroundColor ="rgb(68,200,141)"
   } else if (e.classList[0].toString(0,6) === "active") {
     e.className =("cell")
     e.style.backgroundColor = "transparent"

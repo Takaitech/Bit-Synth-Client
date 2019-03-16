@@ -1,14 +1,13 @@
 
 .screen {
   z-index: -1;
-  width: 430px;
-  height: 330px;
+  width: 490px;
+  height: 370px;
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
-  background-color: white;
+  background-color: black;
   border-radius: 90px 93px 93px 93px / 15px 15px 15px 15px;
-  box-shadow: 0 2px 100px, 0 0 5px, 0 0 5em white, 0 0 0.5em white, 0 0 0.4em white;
   transform: perspective(100px) rotateX(1deg);
 }
 
@@ -16,12 +15,13 @@
     position: relative;
     top: 14px;
     padding: 10px;
-    width: 475px;
+    width: 530px;
     height: 400px;
     background-color: rgb(40,40,40);
     margin-right: auto;
     margin-left: auto;
     transform: perspective(100px) rotateX(1deg);
     border-bottom: solid black 10px;
+    //box-shadow: inset 0 -28px 60px -7px rgba(68,200,141,0.4);
 
 }

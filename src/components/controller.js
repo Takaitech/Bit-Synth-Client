@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import Keyboard from "./keyboard"
 import Envelope from "./envelope"
 import Volume from "./volume"
+import Effects from "./effects"
 
 import Tone from 'tone'
 console.log(Tone.Transport.seconds.toFixed(2))
@@ -30,6 +31,7 @@ export class Controller extends React.Component {
     return (
       <div className="controller">
         <Envelope />
+        <Effects />
         <Keyboard />
         <Volume />
         <input id="play" type="button" value="Play" onClick={e => {this.playMode("play")}} />

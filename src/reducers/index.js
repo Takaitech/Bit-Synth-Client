@@ -2,20 +2,23 @@ import * as actions from "../actions";
 import Tone from 'tone';
 
 //INIT SYNTH
-var synth = new Tone.PolySynth(4, Tone.Synth).toMaster();
+
+var synth = new Tone.PolySynth(1, Tone.Synth).chain(Tone.Master);
 synth.set({
   envelope: {
-    attack: 1,
+    attack: 0.4,
     decay: 0.5,
-    sustain:1,
+    sustain:0.5,
     release: 0.6
   },
   oscillator: {
     type: "pulse",
     width: 0.4
   },
-  volume: -10
+  volume: -15
 })
+
+
 
 
 
@@ -36,6 +39,7 @@ for (var note = 95; note >= 24; note--) {
 let initialSynthState = {
   synth: synth.get(),
   sequencer:{
+    octave: "4",
     mode: "creation",
     currentColumn: 0,
     grid: {

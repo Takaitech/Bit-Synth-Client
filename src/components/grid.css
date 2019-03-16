@@ -1,28 +1,38 @@
 
 
 .grid {
-  border: black solid 3px;
-  height: 280px;
-  width: 90%;
+  padding-top: 10px;
+  //border: black solid 3px;
+  height: 270px;
+  width: 94%;
   margin-left: auto;
   margin-right: auto;
   position:relative;
-  top: 20px;
+  top: 10px;
   border-radius:5px;
-  transform: perspective(100px) rotateX(1deg);
+  transform: perspective(250px) rotateX(1deg);
+  border-radius: 93px 93px 0px 0px / 15px 15px 15px 15px;
+  //box-shadow: 0 50px 100px, 0 0 5px, 0 0 8em mediumseagreen, 0 0 0.5em mediumseagreen, 0 0 0.4em mediumseagreen;
+
   overflow: scroll;
-  background: grey;
+  background: black;
+
+
 
 }
 .rows {
-  width: 10%;
+  width: 7%;
   height:100%;
   float: left;
+
 }
 
 .row > span {
-  margin-right: 5px;
-  font-size: 10px;
+  position: relative;
+  margin-right: 3px;
+  font-size: 13px;
+  color: mediumseagreen;
+  font-weight:600;
 
 }
 
@@ -30,9 +40,7 @@
   box-sizing: border-box;
   text-align:right;
   width: 100%;
-  height: 6.25%;
-  border:1px solid rgb(68,200,141);
-  background-color: grey;
+  height: 8.28%;
 }
 
 
@@ -40,24 +48,26 @@
   display: inline-block;
   box-sizing: border-box;
   width: 6.25%;
-  height: 300%;
+  height: 400%;
 }
 
 .columns {
+  box-sizing: border-box;
+  border:1px solid rgb(68,200,141);
   display: inline-block;
-  width: 90%;
+  width: 91%;
   height: 100%;
 }
 
 .cell {
   box-sizing: border-box;
   width: 100%;
-  height: 2.085%;
-  border:1px solid rgb(68,200,141);
+  height: 2.079%;
+  border: 1px solid rgb(68,200,141);
 }
 
 .active {
- background-color: black;
+ background-color: rgb(68,200,141);
 }
 
 .highlight{

@@ -7,22 +7,23 @@ const AudioKeys =  require('audiokeys');
 
 // CREATE KEYBOARD
 var keyboard = new AudioKeys({
-  polyphony: 50,
+  polyphony: 1,
   rows: 1,
   priority: "last",
-  rootNote: 60
+  rootNote: 60 
 });
 
 //KEYBOARD DOWN FUNCTION
 keyboard.down( function(note) {
+  console.log(note.note)
   let triggered = [document.getElementById("#" + note.keyCode)];
-
   triggered.forEach(function(keyCode) {
     keyCode.style.top = "2px";
     if (keyCode.className.match(/\bwhite\b/)){
-      keyCode.style.backgroundColor ="black"
+      keyCode.style.backgroundColor ="rgb(190,190,190)"
+
     } else if (keyCode.className.match(/\bblack\b/)) {
-      keyCode.style.backgroundColor ="white"
+      keyCode.style.backgroundColor ="black"
     }
   })
  synth.triggerAttack(note.frequency);
@@ -44,12 +45,18 @@ keyboard.up( function(note) {
  synth.triggerRelease(note.frequency);
 });
 
+function changeOctave(event) {
+  var key = event.key || event.keyCode;
+  console.log(key)
+
+}
+
+
 
 export default function Keyboard() {
-
   return(
-    <div className="keyboard">
-        <div className="key white" id="#65" style={{left:"6%"}}></div>
+    <div className="keyboard" onKeyPress={e => {changeOctave(e)}}>
+        <div className="key white" id="#65" style={{left:"6%"}} ></div>
         <div className="key black" id="#87" style={{left:"11.2%"}}></div>
         <div className="key white leftBorder" id="#83" style={{left:"14%"}}></div>
         <div className="key black" id="#69" style={{left:"19.3%"}}></div>

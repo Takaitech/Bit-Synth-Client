@@ -1,11 +1,14 @@
 
 .controller {
   padding: 20px;
-  background-color: rgb(82,76,76);
-  width: 560px;
+  background-color: rgb(40,40,40);
+  width: 81%;
   height: 110px;
   margin-left: auto;
   margin-right: auto;
   border-bottom: solid black 1px;
-  transform: perspective(250px) rotateX(30deg);
+  transform: perspective(280px) rotateX(30deg);
+  box-shadow: inset 0 40px 100px 1px rgba(68,200,141,0.3);
+
+
 }
