@@ -23,7 +23,7 @@ StartAudioContext(Tone.context)
 
 function updateTime() {
   requestAnimationFrame(updateTime)
-  console.log(Tone.Transport.seconds.toFixed(2))
+  Tone.Transport.seconds.toFixed(2)
   //the AudioContext time
   Tone.context.currentTime.toFixed(2)
 }
@@ -31,7 +31,7 @@ updateTime()
 Tone.Transport.loopEnd = "4m"
 Tone.Transport.loop = true;
 
-Tone.Transport.bpm.value = 120
+Tone.Transport.bpm.value = 120;
 
 
 export class Grid extends React.Component {
