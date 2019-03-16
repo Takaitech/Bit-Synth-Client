@@ -4,12 +4,12 @@
   bottom:0;
   left: 0;
   right: 0;
-  width: 711px;
+  width: 750px;
   height: 1400px;
   margin-left:auto;
   margin-right:auto;
-  border-left: 40px solid rgb(82,76,76);
-  border-right: 40px solid rgb(82,76,76);
+  border-left: 40px solid rgb(65,66,67);
+  border-right: 40px solid rgb(65,66,67);
   background-color: rgb(30,30,30);
 }
 
@@ -29,7 +29,7 @@
 .bottom-cover {
   position: relative;
   top:2px;
-  width: 711px;
+  width: 100%;
   height: 697px;
   background-color: rgb(68,200,141);
 }

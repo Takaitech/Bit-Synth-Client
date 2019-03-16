@@ -10,6 +10,7 @@ import * as serviceWorker from './serviceWorker';
 //SUBSCRIBE SYNTH TO STORE
 store.subscribe(() => {
   console.log('state changed');
+  console.log(synth.get())
   let state = store.getState()
   synth.set({
     envelope: {

@@ -52,14 +52,13 @@
 /* Links inside the dropdown */
 .dropdown-content input {
   border-style: none;
-  font-size: 30px;
+  font-size: 25px;
   float: none;
   color: white;
   background-color: rgb(68,200,141);
   display: block;
   padding: 20px;
-
-
+  width: 200px;
 }
 
 /* Add a grey background color to dropdown links on hover */
