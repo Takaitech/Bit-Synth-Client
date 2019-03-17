@@ -12,7 +12,8 @@
   border-radius:5px;
   transform: perspective(250px) rotateX(1deg);
   border-radius: 93px 93px 0px 0px / 15px 15px 15px 15px;
-  //box-shadow: 0 50px 100px, 0 0 5px, 0 0 8em mediumseagreen, 0 0 0.5em mediumseagreen, 0 0 0.4em mediumseagreen;
+  box-shadow: 0 50px 100px, 0 0 5px, 0 0 8em mediumseagreen, 0 0 0.5em mediumseagreen, 0 0 0.4em mediumseagreen;
+  /*box-shadow: inset 0 70px 100px, inset 0 0 10px mediumseagreen, inset 0 0 4em mediumseagreen, 0 0 0.5em mediumseagreen, 0 0 60em -50px mediumseagreen;*/
 
   overflow: scroll;
   background: black;
@@ -53,7 +54,6 @@
 
 .columns {
   box-sizing: border-box;
-  border:1px solid rgb(68,200,141);
   display: inline-block;
   width: 91%;
   height: 100%;

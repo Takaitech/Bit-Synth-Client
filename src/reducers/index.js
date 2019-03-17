@@ -6,7 +6,7 @@ import Tone from 'tone';
 var synth = new Tone.PolySynth(1, Tone.Synth).chain(Tone.Master);
 synth.set({
   envelope: {
-    attack: 0.4,
+    attack: 0.5,
     decay: 0.5,
     sustain:0.5,
     release: 0.6
@@ -106,6 +106,51 @@ export const synthReducer = (state = initialSynthState, action) => {
       }
     });
   }
+  else if (action.type === actions.INIT_SYNTH) {
+    return Object.assign({}, state, {
+      synth: {...state.synth,
+        envelope: {...state.synth.envelope,
+          attack: 0.5,
+          decay: 0.5,
+          sustain:0.5,
+          release: 0.6
+        },
+        oscillator: {...state.synth.oscillator,
+          type: "pulse",
+          width: 0.4
+        },
+        volume: -15
+      }
+    })
+  }
+  else if (action.type === actions.FETCH_PRESETS_SUCCESS) {
+    return Object.assign({}, state, {
+      presets: action.preset
+    })
+  }
+
+  else if (action.type === actions.LOAD_PRESET) {
+    console.log(action)
+    return Object.assign({}, state, {
+      currentPreset: action.preset.title,
+      synth: {...state.synth,
+        portamento: action.preset.portamento,
+        volume: action.preset.volume,
+        envelope: {...state.synth.envelope,
+          attack: action.preset.envelope.attack,
+          decay: action.preset.envelope.decay,
+          sustain: action.preset.envelope.sustain,
+          release: action.preset.envelope.release
+        },
+        oscillator: {...state.synth.oscillator,
+          type: action.preset.oscillator.type,
+          volume: action.preset.oscillator.volume,
+          width: action.preset.oscillator.width
+        }
+      }
+    })
+  }
+
   //GRID ACTIONS
   else if (action.type === actions.PLAY_MODE) {
     return Object.assign({}, state, {

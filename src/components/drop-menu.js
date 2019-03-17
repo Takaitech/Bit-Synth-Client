@@ -1,29 +1,56 @@
 import React from 'react';
 import "./drop-menu.css"
+import {API_BASE_URL} from '../config'
 import {synth} from "../reducers/index"
 import {connect} from "react-redux"
-import {API_BASE_URL} from '../config'
+import {initSynth} from '../actions/index'
+import {fetchPresets} from '../actions/index'
+import {savePreset} from '../actions/index'
 //Init Synth
-function initSynth() {
-synth.set({
-  envelope: {
-    attack: 1,
-    decay: 0.5,
-    sustain:1,
-    release: 0.6
-  },
-  oscillator: {
-    type: "pulse",
-    width: 0.5
-  },
-  volume: -10
-})
-console.log(synth.get())
-}
+
 
 export class DropMenu extends React.Component {
+  initSynth(e) {
+    this.props.dispatch(initSynth(e))
+  }
+
+  showForm() {
+    let x  = document.getElementsByClassName("presetForm")
+    x[0].style.display = "inline-block";
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    console.log(e.target)
+    let title = document.getElementById('title').value
+    console.log(title)
+    let preset ={
+    "title": title,
+    "envelope": {
+      "attack": this.props.synth.envelope.attack,
+      "decay": this.props.synth.envelope.decay,
+      "sustain": this.props.synth.envelope.sustain,
+      "release": this.props.synth.envelope.release
+    },
+    "portamento": this.props.synth.portamento,
+    "volume": this.props.synth.volume,
+    "oscillator": {
+      "type": this.props.synth.oscillator.type,
+      "volume": this.props.synth.oscillator.volume,
+      "width": this.props.synth.oscillator.width
+    }
+  }
+  this.props.dispatch(savePreset(preset))
+}
+
+
+  componentDidMount() {
+     this.props.dispatch(fetchPresets());
+ }
+
+
   render() {
-    console.log(this.props)
+    console.log(this.props.synth)
 
     return(
       <div className="dropdown">
@@ -32,8 +59,11 @@ export class DropMenu extends React.Component {
           <i className="fa fa-caret-down"></i>
         </button>
         <div className="dropdown-content">
-          <input type="button" value='INIT SYNTH' onClick={e => {initSynth()}} />
-          <input type="button" value='SAVE PRESET'/>
+          <input className="button1" type="button" value='INIT SYNTH' onClick={e => {this.initSynth(e)}} />
+            <form className="presetForm" onSubmit={e => {this.handleSubmit(e)}}>
+              <input id="title" placeHolder="Preset Name" type="text"></input>
+              <button className="button2" type="submit" value='SAVE PRESET'>SAVE PRESET</button>
+            </form>
         </div>
       </div>
     )
@@ -41,9 +71,6 @@ export class DropMenu extends React.Component {
 }
 
 
-
-DropMenu.defaultProps = {
-};
 
 const mapStateToProps = state => ({
   synth: state.synth

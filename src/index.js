@@ -10,8 +10,8 @@ import * as serviceWorker from './serviceWorker';
 //SUBSCRIBE SYNTH TO STORE
 store.subscribe(() => {
   console.log('state changed');
-  console.log(synth.get())
   let state = store.getState()
+  console.log(store.getState())
   synth.set({
     envelope: {
       attack: state.synth.envelope.attack,

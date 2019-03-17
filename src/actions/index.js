@@ -1,3 +1,5 @@
+import {API_BASE_URL} from '../config'
+
 //SYNTH ACTIONS
 
 export const UPDATE_ATTACK = "UPDATE_ATTACK";
@@ -37,7 +39,65 @@ export const muteVolume = bool => ({
   bool
 });
 
+export const INIT_SYNTH = "INIT_SYNTH";
+export const initSynth = synth => ({
+  type: INIT_SYNTH
+});
 
+export const FETCH_PRESETS_SUCCESS = 'FETCH_PRESETS_SUCCESS';
+export const fetchPresetsSuccess = preset => ({
+    type: FETCH_PRESETS_SUCCESS,
+    preset
+});
+
+export const fetchPresets = () => dispatch => {
+    fetch(`${API_BASE_URL}/presets`, {
+      headers : {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+     })
+       .then(res => {
+
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    }).then(preset => {
+        dispatch(fetchPresetsSuccess(preset));
+    });
+};
+
+
+export const LOAD_PRESET_SUCCESS = 'LOAD_PRESET_SUCCESS';
+export const loadPresetSuccess = preset => ({
+    type: LOAD_PRESET_SUCCESS,
+    preset
+});
+
+
+
+export const LOAD_PRESET = "LOAD_PRESET";
+export const loadPreset = preset => ({
+  type: LOAD_PRESET,
+  preset
+})
+
+
+export const savePreset = preset => dispatch => {
+  return fetch(`${API_BASE_URL}/presets`, {
+    method: 'POST',
+    headers: {
+        'content-type': 'application/json'
+    },
+    body: JSON.stringify(preset)
+  })
+  .then(res => res.status(200))
+  .then(res => {
+    return res.json()
+  })
+  .catch(err => console.log(err))
+}
 
 //GRID ACTIONS
 export const PLAY_MODE = "PLAY_MODE";
