@@ -23,7 +23,6 @@ render(){
         <option value='0.7'>0.7</option>
         <option value='0.8'>0.8</option>
         <option value='0.9'>0.9</option>
-        <option value='1'>1</option>
       </select>
       <br />
       <span className="pulse-width">PULSE WIDTH</span>

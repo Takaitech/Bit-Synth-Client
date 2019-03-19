@@ -25,7 +25,7 @@ export class Envelope extends React.Component {
       <label className='decay'>D</label>
       <input className='input-range' type='range' step='0.5' min='0' max='5' value={this.props.envelope.decay} onChange={e => {this.updateDecay(parseFloat(e.target.value))}} />
       <label className='sustain'>S</label>
-      <input className='input-range' type='range' step='0.1' min='0' max='1' value={this.props.envelope.sustain} onChange={e => {this.updateSustain(parseFloat(e.target.value))}} />
+      <input className='input-range' type='range' step='0.1' min='.1' max='1' value={this.props.envelope.sustain} onChange={e => {this.updateSustain(parseFloat(e.target.value))}} />
       <label className='release'>R</label>
       <input className='input-range' type='range' step='0.1' min='0.1' max='5' value={this.props.envelope.release} onChange={e => {this.updateRelease(parseFloat(e.target.value))}} />
     </div>
