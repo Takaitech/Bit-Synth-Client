@@ -56,9 +56,6 @@
 @media only screen
   and (max-device-width: 1020px)
   and (-webkit-min-device-pixel-ratio: 1) {
-    .bottom-cover {
-      background-repeat: no-repeat;
-    }
     .machine {
       width: 100%;
       border-left: none;

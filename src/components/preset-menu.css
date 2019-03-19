@@ -50,11 +50,3 @@
 
     }
   }
-
-
-  _::-webkit-full-page-media,
-_:future,
-:root {
-     /* Safari 7.1 - 8.0 (Safari 7.1+) */
-     /* add extra transform: translateZ() value here for Mac OsX Safari */
-}
