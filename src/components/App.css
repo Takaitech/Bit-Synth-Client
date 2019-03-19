@@ -57,7 +57,7 @@
   and (max-device-width: 1020px)
   and (-webkit-min-device-pixel-ratio: 1) {
     .bottom-cover {
-      background-repeat: repeat;
+      background-repeat: no-repeat;
     }
     .machine {
       width: 100%;

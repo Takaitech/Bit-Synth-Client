@@ -56,7 +56,7 @@ export class DropMenu extends React.Component {
         <div className='dropdown-content'>
           <input className='button1' type='button' value='INIT SYNTH' onClick={e => {this.initSynth(e)}} />
             <form className="presetForm" onSubmit={e => {this.handleSubmit(e)}}>
-              <input id='title' placeHolder='Preset Name' type='text' maxLength='10' autocComplete='off'></input>
+              <input id='title' placeholder='Preset Name' type='text' maxLength='10' autoComplete='off'></input>
               <button className='button2' type='submit' value='SAVE PRESET'>SAVE PRESET</button>
             </form>
         </div>
