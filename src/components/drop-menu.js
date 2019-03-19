@@ -1,6 +1,5 @@
 import React from 'react';
 import "./drop-menu.css"
-import {API_BASE_URL} from '../config'
 import {synth} from "../reducers/index"
 import {connect} from "react-redux"
 import {initSynth} from '../actions/index'
