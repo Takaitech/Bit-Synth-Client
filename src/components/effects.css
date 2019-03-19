@@ -1,6 +1,46 @@
 .effects-container {
-  float: right;
-  width: 65%;
-  height: 40%;
-  border: 1px solid mediumseagreen
+  width: 40%;
+  float:left;
 }
+select {
+  background-color: black;
+  width: 40px;
+  border:none;
+  color:mediumseagreen;
+  position: relative;
+  left: 15px;
+}
+
+.pulse-width {
+  font-size: 12px;
+  position: relative;
+  font-weight: 600;
+  color: white;
+  left: 20px;
+}
+
+.effectsTitle {
+  text-shadow: 3px 2px rgba(31, 31, 31, 0.5);
+  color:white;
+  position: relative;
+  bottom: 20px;
+  margin: 0;
+  font-size: 16px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+
+@media only screen
+  and (max-device-width: 1200px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .effects-container {
+      width:30%;
+      position: relative;
+      left:34%;
+
+    }
+  }

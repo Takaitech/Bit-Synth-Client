@@ -39,6 +39,12 @@ export const muteVolume = bool => ({
   bool
 });
 
+export const UPDATE_WIDTH = "UPDATE_WIDTH";
+export const updateWidth = width => ({
+  type: UPDATE_WIDTH,
+  width
+});
+
 export const INIT_SYNTH = "INIT_SYNTH";
 export const initSynth = synth => ({
   type: INIT_SYNTH

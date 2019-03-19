@@ -22,7 +22,7 @@ export class DropMenu extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     console.log(e.target)
-    let title = document.getElementById('title').value
+    let title = document.getElementById('title').value.toUpperCase()
     console.log(title)
     let preset ={
     "title": title,
@@ -41,6 +41,7 @@ export class DropMenu extends React.Component {
     }
   }
   this.props.dispatch(savePreset(preset))
+  document.getElementById('title').value = ''
 }
 
 
@@ -61,7 +62,7 @@ export class DropMenu extends React.Component {
         <div className="dropdown-content">
           <input className="button1" type="button" value='INIT SYNTH' onClick={e => {this.initSynth(e)}} />
             <form className="presetForm" onSubmit={e => {this.handleSubmit(e)}}>
-              <input id="title" placeHolder="Preset Name" type="text"></input>
+              <input id="title" placeHolder="Preset Name" type="text" maxLength="10"></input>
               <button className="button2" type="submit" value='SAVE PRESET'>SAVE PRESET</button>
             </form>
         </div>

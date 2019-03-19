@@ -7,10 +7,10 @@ const AudioKeys =  require('audiokeys');
 
 // CREATE KEYBOARD
 var keyboard = new AudioKeys({
-  polyphony: 1,
+  polyphony: 88,
   rows: 1,
   priority: "last",
-  rootNote: 60 
+  rootNote: 60
 });
 
 //KEYBOARD DOWN FUNCTION

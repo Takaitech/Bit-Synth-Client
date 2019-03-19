@@ -30,11 +30,12 @@ export class Controller extends React.Component {
   render(){
     return (
       <div className="controller">
+        <h2 className="envelope-title">ENVELOPE</h2>
         <Envelope />
         <Effects />
         <Keyboard />
         <Volume />
-        <input id="play" type="button" value="Play" onClick={e => {this.playMode("play")}} />
+        <input className="play" id="play" type="image" src="/files/icons/icons8-play-100.png" value="Play"  alt="play" onClick={e => {this.playMode("play")}} />
       </div>
     )
   }

@@ -1,34 +1,55 @@
 
-.input-range {
-  -webkit-appearance: none;
-  height: 50px;
-  border-radius: 5px;
-  background: #ccc;
-  outline: none;
-  writing-mode: bt-lr; /* IE */
-  -webkit-appearance: slider-vertical; /* WebKit */
-  width: 10px;
-  margin-left: 10px;
-}
 .volume-controls {
   position: absolute;
-  right: 35px;
-  bottom: 20px;
+  bottom:0px;
+  right:10px;
+  height: 50%;
+  width: 20%;
+  float: right;
 }
 
 .volume img{
   position: absolute;
-  top: 55px;
-  left: 9px;
-  width: 17px;
+  bottom: 0px;
+  height: 14%;
+  right:33%;
 }
 
 .mute{
   position: absolute;
-  top: 52px;
-  left:30px;
-  width: 17px;
-  border: 1px solid black;
-  border-radius: 4px;
-  padding: 2px;
+  bottom: 0px;
+  right:10%;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: peru;
+  height: 14%;
+}
+
+.input-range-volume {
+  margin:0;
+  right:10%;
+  position: absolute;
+  bottom:42%;
+}
+
+.volume-title {
+  text-shadow: 3px 2px rgba(31, 31, 31, 0.5);
+  color: white;
+  text-shadow: inset 2px 2px #ff0000;
+  position: relative;
+  bottom:5px;
+  margin-left: 10%;
+  text-align: center;
+  font-size: 16px;
+
+}
+
+
+@media only screen
+  and (max-device-width: 1200px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .volume-controls {
+      right: 9%;
+      bottom:1%;
+    }
 }

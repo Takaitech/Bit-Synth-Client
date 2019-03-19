@@ -12,7 +12,7 @@ export class PresetMenu extends React.Component {
   console.log(this.props.presets[0])
     const listPresets = this.props.presets.map((preset, index) => (
 
-        <li className={preset} value={index} key={index} onClick={preset => this.loadPreset(this.props.presets[index])}>{this.props.presets[index].title}</li>
+        <li className='preset' value={index} key={index} onClick={preset => this.loadPreset(this.props.presets[index])}>{this.props.presets[index].title}</li>
       ));
     return (
       <div className="preset-menu">

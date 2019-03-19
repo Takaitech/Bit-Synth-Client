@@ -2,8 +2,9 @@ import * as actions from "../actions";
 import Tone from 'tone';
 
 //INIT SYNTH
+var synth = new Tone.PolySynth(4, Tone.Synth).chain(Tone.Master);
 
-var synth = new Tone.PolySynth(1, Tone.Synth).chain(Tone.Master);
+
 synth.set({
   envelope: {
     attack: 0.5,
@@ -19,7 +20,7 @@ synth.set({
 })
 
 
-
+console.log(synth.get())
 
 
 let rootNotes = ['B','A#','A','G#','G','F','F#','E','D#','D','C#','C'];
@@ -47,7 +48,6 @@ let initialSynthState = {
       noteNumbers: noteNumbers,
       columns: columns
     }
-
   }
 };
 console.log(initialSynthState)
@@ -102,6 +102,15 @@ export const synthReducer = (state = initialSynthState, action) => {
       synth:{...state.synth,
         oscillator:{...state.synth.oscillator,
         mute: action.bool
+        }
+      }
+    });
+  }
+  else if (action.type === actions.UPDATE_WIDTH) {
+    return Object.assign({}, state, {
+      synth:{...state.synth,
+        oscillator:{...state.synth.oscillator,
+          width: action.width
         }
       }
     });

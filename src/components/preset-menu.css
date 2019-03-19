@@ -1,6 +1,6 @@
 
 .preset-menu {
-  height: 70px;
+  height: 60px;
   width: 95.5%;
   bottom: -15px;
   margin-left: auto;
@@ -14,8 +14,38 @@
   box-shadow: 0 70px 100px, 0 0 10px mediumseagreen, 0 0 4em mediumseagreen, 0 0 0.5em mediumseagreen, 0 0 60em -50px mediumseagreen;
 
 }
+ ul {
+   position: absolute;
+   left:10%;
+   padding-left: 0px;
+   border-left: 6px double black;
+   border-right: 6px double black;
+   width: 80%;
+
+ }
 
 .preset {
-  font-size: 13px;
-  color: black;
+  font-weight: 600;
+  padding: 4px;
+  color: white;
+  border-radius: 4px;
+  background-color: peru;
+  margin-bottom: 5px;
+  list-style: none;
+  font-size: 10px;
+  float: left;
+  margin-bottom: 15px;
+  margin-left: 5%;
 }
+
+
+@media only screen
+  and (max-device-width: 1200px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .preset-menu {
+      height: 23%;
+      width: 98%;
+      transform: perspective(0px) rotateX(0deg);
+
+    }
+  }

@@ -27,8 +27,9 @@ export class Volume extends React.Component {
 
   return(
     <div className="volume-controls">
+      <h2 className='volume-title'>VOLUME</h2>
       <input type="image" className="mute" src={this.checkMuteState()} onClick={e => {this.muteVolume()}} alt="mute" />
-      <input className="input-range" type="range" min="-50" max="10" orient="vertical"  value={this.props.volume} onInput={e => {this.updateVolume(parseFloat(e.target.value))}} />
+      <input className="input-range-volume" type="range" min="-100" max="0" orient="vertical"  value={this.props.volume} onInput={e => {this.updateVolume(parseFloat(e.target.value))}} />
     </div>
   )
   }

@@ -1,25 +1,141 @@
 
+.input-range{
+  margin-left: 5px;
+  margin-top: 3%;
+  position: relative;
+  left:20px;
+  bottom:1px;
+  display: block;
+  width: 70%;
+  height: 0%;
+}
+/*###################################*/
+/*###########Responsive Range########*/
+/*###################################*/
+/*##############Core Style###########*/
 
-.input-range {
+input[type=range] {
   -webkit-appearance: none;
-  height: 50px;
-  border-radius: 5px;
-  background: #ccc;
+  width: 70%;
+  height: 0%;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
   outline: none;
-  writing-mode: bt-lr; /* IE */
-  -webkit-appearance: slider-vertical; /* WebKit */
-  width: 10px;
-  margin-left: 10px;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+/*#############Thumb##############*/
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border-radius: 3px;
+  height:20px;
+  width:13px;
+  background: #c97745;
+  cursor: pointer;
+  margin-top: -12px;
+}
+
+input[type=range]::-moz-range-thumb {
+  border-radius: 3px;
+  height:20px;
+  width:13px;
+  background: #c97745;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-thumb {
+  border-radius: 3px;
+  height:20px;
+  width:13px;
+  background: #c97745;
+  cursor: pointer;
+}
+/*#############Track##############*/
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: black;
+}
+
+input[type=range]:active::-webkit-slider-runnable-track {
+  background: black;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: black);
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #ccc;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #ddd;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #ccc;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #ddd;
 }
 .envelope {
-  position: absolute;
-  left: 0;
-  top:0;
+  padding: 5px;
+  background-color: rgb(31,31,31);
+  float:  left;
+  border-radius: 20px;
+  width: 16%;
+  height: 90%
 }
 .attack, .decay, .sustain, .release {
-  color: white;
-  padding: 4px;
   position: relative;
-  left: 26px;
-  top: 16px;
+  top: 10px;
+  font-size: 18px;
+  color: white;
+  font-weight: 600;
 }
+
+@media only screen
+  and (max-device-width: 1200px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .input-range{
+      width: 75%;
+      margin-bottom: 14%;
+    }
+
+    .envelope {
+        position: absolute;
+        margin-left:1%;
+        height: 80%;
+        padding: 20px;
+
+    }
+
+  }
