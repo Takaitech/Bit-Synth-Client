@@ -11,8 +11,6 @@
   border-bottom: solid black 1px;
   transform: perspective(300px) rotateX(30deg);
   box-shadow: inset 0 40px 100px 1px rgba(68,200,141,0.3);
-
-
 }
 
 
@@ -34,18 +32,23 @@
   background-color: peru;
   position:absolute;
   top: 0;
-  right:4px;
+  right: 4%;
   box-shadow: inset 0 -5px 2px  rgb(31,31,31);
   transform: perspective(400px) rotateX(40deg) rotateY(-2deg);
   border: 1px solid grey;
   outline: none;
   float:right;
-
 }
 
 
+@media not all and (min-resolution:.001dpcm)
+{ @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+
+}}
+
+/* DESKTOP */
 @media only screen
-  and (max-device-width: 1200px)
+  and (max-device-width: 1020px)
   and (-webkit-min-device-pixel-ratio: 1) {
     .controller {
       width: 93%;
@@ -58,6 +61,20 @@
       right:25px;
       width: 30px;
       transform: perspective(0px) rotateX(0deg);
-
     }
+  }
+
+
+/* TABLETS */
+@media only screen
+  and (min-device-width: 767px)
+  and (max-device-width: 1020px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    .controller {
+      width: 90.1%;
+      height:33%;
+      transform: perspective(0px) rotateX(0deg);
+    }
+
   }

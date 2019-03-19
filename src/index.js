@@ -3,15 +3,13 @@ import ReactDOM from 'react-dom';
 import store from './store'
 import {Provider} from 'react-redux';
 import {synth} from './reducers/index';
-import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+import './index.css';
 
 //SUBSCRIBE SYNTH TO STORE
 store.subscribe(() => {
-  console.log('state changed');
   let state = store.getState()
-  console.log(store.getState())
   synth.set({
     envelope: {
       attack: state.synth.envelope.attack,

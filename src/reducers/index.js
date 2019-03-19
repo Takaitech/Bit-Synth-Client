@@ -1,9 +1,8 @@
-import * as actions from "../actions";
+import * as actions from '../actions';
 import Tone from 'tone';
 
 //INIT SYNTH
 var synth = new Tone.PolySynth(4, Tone.Synth).chain(Tone.Master);
-
 
 synth.set({
   envelope: {
@@ -20,13 +19,11 @@ synth.set({
 })
 
 
-console.log(synth.get())
-
-
 let rootNotes = ['B','A#','A','G#','G','F','F#','E','D#','D','C#','C'];
-let columns = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"];
+let columns = ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15'];
 
 let notes = [];
+
 for (var i = 5; i >= 2; i--) {
     rootNotes.forEach(function(item, index, array) {
       notes.push(item + i)});
@@ -40,8 +37,8 @@ for (var note = 95; note >= 24; note--) {
 let initialSynthState = {
   synth: synth.get(),
   sequencer:{
-    octave: "4",
-    mode: "creation",
+    octave: '4',
+    mode: 'creation',
     currentColumn: 0,
     grid: {
       notes: notes,
@@ -50,7 +47,7 @@ let initialSynthState = {
     }
   }
 };
-console.log(initialSynthState)
+
 
 export const synthReducer = (state = initialSynthState, action) => {
   //SYNTH ACTIONS

@@ -1,7 +1,7 @@
 import React from 'react';
-import './preset-menu.css'
-import {loadPreset} from "../actions/index"
 import {connect} from 'react-redux'
+import {loadPreset} from '../actions/index'
+import './preset-menu.css'
 
 export class PresetMenu extends React.Component {
   loadPreset(preset) {
@@ -9,13 +9,12 @@ export class PresetMenu extends React.Component {
   }
 
   render(){
-  console.log(this.props.presets[0])
     const listPresets = this.props.presets.map((preset, index) => (
+      <li className='preset' value={index} key={index} onClick={preset => this.loadPreset(this.props.presets[index])}>{this.props.presets[index].title}</li>
+    ));
 
-        <li className='preset' value={index} key={index} onClick={preset => this.loadPreset(this.props.presets[index])}>{this.props.presets[index].title}</li>
-      ));
     return (
-      <div className="preset-menu">
+      <div className='preset-menu'>
         <ul>
           {listPresets}
         </ul>
@@ -23,7 +22,6 @@ export class PresetMenu extends React.Component {
     )
   }
 }
-
 
 
 PresetMenu.defaultProps = {

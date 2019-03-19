@@ -1,6 +1,4 @@
-
 .screen {
-  z-index: -1;
   width: 92%;
   height: 370px;
   margin-right: auto;
@@ -23,12 +21,19 @@
     transform: perspective(100px) rotateX(1deg);
     border-bottom: solid black 10px;
     box-shadow: inset 0 -28px 60px -7px rgba(68,200,141,0.4);
-
 }
 
 
+@media not all and (min-resolution:.001dpcm)
+{ @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+
+  .back-board {
+    transform: perspective(0px) rotateX(0deg);
+  }
+}}
+
 @media only screen
-  and (max-device-width: 1200px)
+  and (max-device-width: 1020px)
   and (-webkit-min-device-pixel-ratio: 1) {
 
     .back-board {
@@ -37,14 +42,11 @@
       height: 50%;
       margin-left: auto;
       margin-right: auto;
-
     }
 
     .screen {
       transform: perspective(0px) rotateX(0deg);
-
-      width: 100%;
+      width: 98%;
       height: 100%;
-
     }
   }

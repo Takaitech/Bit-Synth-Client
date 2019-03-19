@@ -1,13 +1,14 @@
-import React from "react";
+import React from 'react';
 import {connect} from 'react-redux';
 import {updateVolume,muteVolume} from '../actions'
-import "./volume.css"
+import './volume.css'
 
 export class Volume extends React.Component {
 
   updateVolume(volume) {
     this.props.dispatch(updateVolume(volume));
   }
+
   muteVolume() {
     if(this.props.oscillator.mute === false){
       this.props.dispatch(muteVolume(true));
@@ -15,23 +16,23 @@ export class Volume extends React.Component {
     this.props.dispatch(muteVolume(false));
     }
   }
+
   checkMuteState() {
     if(this.props.oscillator.mute === false) {
       return process.env.PUBLIC_URL + '/files/icons/volume-off.png'
     } else {
-      return process.env.PUBLIC_URL + '/files/icons/volume-2.png'
+      return process.env.PUBLIC_URL + '/files/icons/volume-on.png'
     }
   }
 
   render() {
-
-  return(
-    <div className="volume-controls">
-      <h2 className='volume-title'>VOLUME</h2>
-      <input type="image" className="mute" src={this.checkMuteState()} onClick={e => {this.muteVolume()}} alt="mute" />
-      <input className="input-range-volume" type="range" min="-100" max="0" orient="vertical"  value={this.props.volume} onInput={e => {this.updateVolume(parseFloat(e.target.value))}} />
-    </div>
-  )
+    return(
+      <div className='volume-controls'>
+        <h2 className='volume-title'>VOLUME</h2>
+        <input type='image' className='mute' src={this.checkMuteState()} onClick={e => {this.muteVolume()}} alt='mute' />
+        <input className='input-range-volume' type='range' min='-75' max='0' orient='vertical'  value={this.props.volume} onInput={e => {this.updateVolume(parseFloat(e.target.value))}} />
+      </div>
+    )
   }
 }
 
@@ -46,7 +47,6 @@ const mapStateToProps = state => ({
     mute: state.synth.oscillator.mute
   },
   volume: state.synth.volume
-
 });
 
 export default connect(mapStateToProps)(Volume);

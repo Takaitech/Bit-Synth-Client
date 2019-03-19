@@ -1,6 +1,5 @@
-/* Navbar container */
 .light-box{
-  background-image: url("/light-box-mobile.jpg");
+  background-image: url('/files/light-box-mobile.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   font-family: Arial;
@@ -18,15 +17,22 @@
   margin-left: 20px;
 }
 
-
 @media only screen
-  and (max-device-width: 1200px)
+  and (max-device-width: 1020px)
   and (-webkit-min-device-pixel-ratio: 1) {
-
     .light-box {
-      background-image: url("/light-box-mobile.jpg");
+      background-image: url('/files/light-box-mobile.jpg');
       background-size:cover;
       width: 100%;
       height: 7%;
     }
+  }
+
+  @media only screen
+    and (min-device-width: 767px)
+    and (max-device-width: 1020px)
+    and (-webkit-min-device-pixel-ratio: 1) {
+      .light-box {
+        background-size: cover;
+      }
   }

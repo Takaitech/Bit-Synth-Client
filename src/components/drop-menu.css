@@ -1,41 +1,39 @@
 .icon {
-  width: 45px;
-  height: 45px;
-  position: absolute;
-  right:7px;
-  bottom: -8px;
+  height: 100%;
+  width: 100%;
 }
 
 .dropbtn {
-  height: 45px;
-  width: 45px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  box-sizing: content-box;
 }
 
 .dropdown {
   float: right;
-  position: relative;
-  right:10px;
-  bottom: -70px;
-  width: 45px;
-  height: 45px;
+  position: absolute;
+  right:1%;
+  top: 32px;
+  height: 30px;
+  width: 35px;
 }
 
-/* Dropdown button */
 .dropdown .dropbtn {
   font-size: 16px;
   border: none;
   outline: none;
   color: black;
-  padding: 14px 16px;
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
 }
 
-/* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
   position: absolute;
+  top: 50px;
   z-index: 1;
   right: -10px;
   font-size: 25px;
@@ -51,6 +49,7 @@
   width: 200px;
   box-shadow:  0 0 5em rgb(68,200,141), 0 0 0.5em rgb(68,200,141), 0 0 0.1em rgb(68,200,141), 0 10px 3px #000;
 }
+
 .button2 {
   font-size: 20px;
   margin-top: 30px;
@@ -58,7 +57,6 @@
   padding: 15px;
   background-color: rgb(68,200,141);
   border: 2px outset rgb(80,220,167);
-
 }
 
 .presetForm {
@@ -68,8 +66,8 @@
   text-align: center;
   background-color: rgb(68,200,141);
   box-shadow:  0 0 5em rgb(68,200,141), 0 0 0.5em rgb(68,200,141), 0 0 0.1em rgb(68,200,141), 0 10px 3px #000;
-
 }
+
 label {
   top: 20px;
   position: relative;
@@ -81,7 +79,6 @@ label {
   position: relative;
   top:25px;
   width: 180px;
-
 }
 
 .button:hover {
@@ -90,4 +87,30 @@ label {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+
+/* Large Tablet */
+@media only screen
+  and (max-device-width: 1020px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .dropdown{
+      height: 25px;
+      width: 25px;
+      position: absolute;
+      top: 3.7%;
+      right: 1%;
+  }
+}
+
+
+/* Desktop */
+@media only screen
+  and (min-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .dropdown{
+    top: 85px;
+    right: 3.8%
+
+  }
 }

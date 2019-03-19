@@ -2,9 +2,10 @@
   width: 40%;
   float:left;
 }
+
 select {
   background-color: black;
-  width: 40px;
+  width: 60px;
   border:none;
   color:mediumseagreen;
   position: relative;
@@ -29,18 +30,15 @@ select {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-
 }
 
 
-
 @media only screen
-  and (max-device-width: 1200px)
+  and (max-device-width: 1020px)
   and (-webkit-min-device-pixel-ratio: 1) {
     .effects-container {
       width:30%;
       position: relative;
       left:34%;
-
     }
   }

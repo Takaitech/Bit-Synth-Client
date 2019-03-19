@@ -11,7 +11,8 @@
   overflow: scroll;
   background: rgb(68,200,141);
   border-radius: 0px 0px 100px 100px / 15px 15px 15px 15px;
-  box-shadow: 0 70px 100px, 0 0 10px mediumseagreen, 0 0 4em mediumseagreen, 0 0 0.5em mediumseagreen, 0 0 60em -50px mediumseagreen;
+  /*box-shadow: 0 70px 100px, 0 0 10px mediumseagreen, 0 0 4em mediumseagreen, 0 0 0.5em mediumseagreen, 0 0 60em -50px mediumseagreen;*/
+  box-shadow: 0 70px 100px rgba(31,31,31,0.6), 0 0 10px mediumseagreen, 0 0 4em mediumseagreen, 0 0 0.5em mediumseagreen, 0 0 60em -50px mediumseagreen;
 
 }
  ul {
@@ -40,12 +41,20 @@
 
 
 @media only screen
-  and (max-device-width: 1200px)
+  and (max-device-width: 1020px)
   and (-webkit-min-device-pixel-ratio: 1) {
     .preset-menu {
-      height: 23%;
-      width: 98%;
+      height: 18%;
+      width: 96%;
       transform: perspective(0px) rotateX(0deg);
 
     }
   }
+
+
+  _::-webkit-full-page-media,
+_:future,
+:root {
+     /* Safari 7.1 - 8.0 (Safari 7.1+) */
+     /* add extra transform: translateZ() value here for Mac OsX Safari */
+}
