@@ -72,7 +72,7 @@
   and (-webkit-min-device-pixel-ratio: 1) {
 
     .controller {
-      width: 90.1%;
+      width: 92.1%;
       height:33%;
       transform: perspective(0px) rotateX(0deg);
     }
