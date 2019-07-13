@@ -32,7 +32,7 @@ function updateTime() {
 updateTime()
 Tone.Transport.loopEnd = '4m'
 Tone.Transport.loop = true;
-Tone.Transport.bpm.value = 120;
+Tone.Transport.bpm.value = 140;
 
 
 export class Grid extends React.Component {
@@ -55,7 +55,7 @@ export class Grid extends React.Component {
 
     let index = this.props.currentColumn;
 
-    Tone.Transport.scheduleRepeat(repeat,'16n')
+    Tone.Transport.scheduleRepeat(repeat,'4n')
 
 
     function repeat(time) {
@@ -83,6 +83,7 @@ export class Grid extends React.Component {
           activeNotes.push(currentCells[i].getAttribute('data-value'))
         }
       }
+      
       for(let i = 0; i < activeNotes.length; i++) {
       synth.triggerAttackRelease(activeNotes[i],'16n',time)
       }
