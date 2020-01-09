@@ -85,10 +85,6 @@ label {
   background-color: darkslategrey;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
 
 /* Large Tablet */
 @media only screen

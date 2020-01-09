@@ -9,13 +9,22 @@ import './drop-menu.css'
 
 
 export class DropMenu extends React.Component {
+  constructor(props) {
+    super(props);
+    // create a ref to store the textInput DOM element
+    this.dropdown = React.createRef();
+  }
+
   initSynth(e) {
     this.props.dispatch(initSynth(e))
+    this.dropdown.current.style.display = "none"
   }
 
   showForm() {
-    let x  = document.getElementsByClassName('presetForm')
-    x[0].style.display = 'inline-block';
+    if(this.dropdown.current.style.display === 'block')  {
+      this.dropdown.current.style.display = "none"
+    } else
+    this.dropdown.current.style.display = "block"
   }
 
   handleSubmit(e) {
@@ -40,6 +49,8 @@ export class DropMenu extends React.Component {
   }
   this.props.dispatch(savePreset(preset))
   document.getElementById('title').value = ''
+  this.dropdown.current.style.display = "none"
+
   }
 
   componentDidMount() {
@@ -49,11 +60,11 @@ export class DropMenu extends React.Component {
   render() {
     return(
       <div className='dropdown'>
-        <button type='button' className='dropbtn'>
+        <button type='button' className='dropbtn' onClick={e => this.showForm(e)}>
           <img className='icon' src={process.env.PUBLIC_URL + '/files/icons/open-icon.png'} alt='nav list' ></img>
           <i className='fa fa-caret-down'></i>
         </button>
-        <div className='dropdown-content'>
+        <div ref={this.dropdown} className='dropdown-content'>
           <input className='button1' type='button' value='INIT SYNTH' onClick={e => {this.initSynth(e)}} />
             <form className="presetForm" onSubmit={e => {this.handleSubmit(e)}}>
               <input id='title' placeholder='Preset Name' type='text' maxLength='10' autoComplete='off'></input>
