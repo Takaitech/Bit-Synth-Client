@@ -15,6 +15,16 @@
   box-shadow: 0 70px 100px rgba(31,31,31,0.6), 0 0 10px mediumseagreen, 0 0 4em mediumseagreen, 0 0 0.5em mediumseagreen, 0 0 60em -50px mediumseagreen;
 
 }
+
+
+.preset-menu {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+.preset-menu:-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
+}
  ul {
    position: absolute;
    left:10%;

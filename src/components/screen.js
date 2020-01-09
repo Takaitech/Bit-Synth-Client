@@ -4,7 +4,7 @@ import PresetMenu from './preset-menu'
 import './screen.css'
 
 
-export default function Screen(props) {
+const Screen = () => {
   return (
     <div className='back-board'>
       <main className='screen'>

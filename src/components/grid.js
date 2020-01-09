@@ -4,7 +4,7 @@ import {synth} from '../reducers/index';
 import {updateCurrentColumn} from  '../actions'
 import StartAudioContext from 'startaudiocontext'
 import {connect} from 'react-redux';
-import {keyboard} from './keyboard'
+import keyboard from './keyboard'
 import './grid.css'
 
 function activateCell(e) {
@@ -55,7 +55,7 @@ export class Grid extends React.Component {
 
     let index = this.props.currentColumn;
 
-    Tone.Transport.scheduleRepeat(repeat,'4n')
+    Tone.Transport.scheduleRepeat(repeat,'16n')
 
 
     function repeat(time) {

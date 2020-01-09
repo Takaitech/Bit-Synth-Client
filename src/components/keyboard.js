@@ -49,7 +49,7 @@ keyboard.up( function(note) {
 });
 
 
-export default function Keyboard() {
+const keyboard = () => {
   return(
     <div className='keyboard'>
         <div className='key white' id='#65' style={{left:'6%'}} ></div>
@@ -74,4 +74,4 @@ export default function Keyboard() {
   )
 }
 
-export {keyboard};
+export default keyboard;
