@@ -1,18 +1,19 @@
 import React from 'react'
 import {synth} from '../reducers/index';
-import './keyboard.css';
+import './keys.css';
 
 
 const AudioKeys =  require('audiokeys');
 
 
 // CREATE KEYBOARD
-var keyboard = new AudioKeys({
+export var keyboard = new AudioKeys({
   polyphony: 88,
   rows: 1,
   priority: 'last',
   rootNote: 60
 });
+
 
 //KEYBOARD DOWN FUNCTION
 keyboard.down( function(note) {
@@ -49,7 +50,7 @@ keyboard.up( function(note) {
 });
 
 
-const keyboard = () => {
+const keys = () => {
   return(
     <div className='keyboard'>
         <div className='key white' id='#65' style={{left:'6%'}} ></div>
@@ -74,4 +75,4 @@ const keyboard = () => {
   )
 }
 
-export default keyboard;
+export default keys;

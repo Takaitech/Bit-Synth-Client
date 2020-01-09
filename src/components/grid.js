@@ -2,10 +2,9 @@ import React from 'react';
 import Tone from 'tone'
 import {synth} from '../reducers/index';
 import {updateCurrentColumn} from  '../actions'
-import StartAudioContext from 'startaudiocontext'
 import {connect} from 'react-redux';
-import keyboard from './keyboard'
 import './grid.css'
+import {keyboard} from './keys'
 
 function activateCell(e) {
   if(e.classList[0].toString(0,4) === 'cell') {
@@ -17,10 +16,6 @@ function activateCell(e) {
     e.style.backgroundColor = 'transparent'
   }
 }
-
-StartAudioContext(Tone.context)
-.then(() => console.log('INITIALIZED WEB AUDIO API'))
-.catch(() => console.log('FAILED TO INITIALIZE WEB AUDIO API'));
 
 function updateTime() {
   requestAnimationFrame(updateTime)

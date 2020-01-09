@@ -24,9 +24,13 @@ let columns = ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14',
 
 let notes = [];
 
+let pushNotes = () => {
+  rootNotes.forEach(function(item, index, array) {
+    notes.push(item + i)})
+}
+
 for (var i = 5; i >= 2; i--) {
-    rootNotes.forEach(function(item, index, array) {
-      notes.push(item + i)});
+  pushNotes()
 }
 
 let noteNumbers = []

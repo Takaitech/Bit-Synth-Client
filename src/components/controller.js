@@ -1,7 +1,7 @@
 import React from 'react';
 import Tone from 'tone'
 import {connect} from 'react-redux'
-import Keyboard from './keyboard'
+import Keys from './keys'
 import Envelope from './envelope'
 import Volume from './volume'
 import Effects from './effects'
@@ -28,7 +28,7 @@ export class Controller extends React.Component {
         <h2 className='envelope-title'>ENVELOPE</h2>
         <Envelope />
         <Effects />
-        <Keyboard />
+        <Keys />
         <Volume />
         <input className='play' id='play' type='image' src='/files/icons/play.png' value='Play'  alt='play' onClick={e => {this.playMode('play')}} />
       </div>
