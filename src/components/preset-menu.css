@@ -17,14 +17,15 @@
 }
 
 
-.preset-menu {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+.preset-menu{
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none; 
 }
-.preset-menu:-webkit-scrollbar { /* WebKit */
-  width: 0;
-  height: 0;
+
+.preset-menu::-webkit-scrollbar {
+  display: none; 
 }
+
  ul {
    position: absolute;
    left:10%;

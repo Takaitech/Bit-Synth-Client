@@ -19,13 +19,14 @@
 
 }
 
+
 .grid {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none; 
 }
-.grid:-webkit-scrollbar { /* WebKit */
-  width: 0;
-  height: 0;
+
+.grid::-webkit-scrollbar {
+  display: none; 
 }
 
 .rows {
